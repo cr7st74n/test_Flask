@@ -3,12 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Flask</title>
+    <title>Super Artist Discover App</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
 
-    <p>Hola amigos, this works</p>
+    <header>
+        <h1>Welcome to the Super Artist Discover App</h1>
+        <p>This app is design to interact with user and get interesting information about your favorite artist.</p>
+    </header>
+    <div class="list">
+        <ul>
+            <dl><Strong>List of API for this project</Strong></dl>
+            <li>AudioDB</li>
+            <li>YouTube API</li>
+            <li>Spotify API</li>
+        </ul>
+    </div>
+
+
+    <main>
+        <h2>Enter here to se the magic !</h2>
+        <div class="getData">
+            <form  method="GET" action="get_artist">
+                <label for="artisInput">Artist: </label>
+                <input name="artist" id="artisInput" type="text">
+                <button type="submit">Go!</button>
+
+            </form>
+        </div>
+    </main>
 
     
 </body>
