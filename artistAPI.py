@@ -1,22 +1,22 @@
 import requests 
+import os
+from pprint import pprint
 
-def get_Artist():
-    # URL to thet the discography
-    ArtistURL = "https://genius-song-lyrics1.p.rapidapi.com/artist/details/"
+artistName1 = "bad bunny"
 
-    queryString = {"id", "344497"}
+def get_Artist(artistName):
+    #search for the artist
+    searchArt = f"https://musicbrainz.org/ws/2/artist?query={artistName}&fmt=json"
 
-    headers = {
-	"X-RapidAPI-Key": "c20c242974mshe8cc858d0dfe43ep152a87jsn8e4eee20a17a",
-	"X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com"
-    }
+    responseArtist = requests.get(searchArt)
 
-    responseArtist = requests.get(ArtistURL, headers=headers, params=queryString)
-
-    return responseArtist
+    if responseArtist.status_code ==200:
+        infoReturn = extract_artist_info(responseArtist.json())
+        return infoReturn
+    else: 
+        return "No artist found"
 
 def extract_artist_info(jsonData):
-
-    return {
-        
-    }
+    realName = jsonData['artists'][0]["aliases"][0]['name']
+    #v bgnhmjpprint(realName)
+    return realName
